@@ -95,6 +95,11 @@ footer img[hidden]{display:none}
 .skip:focus{transform:none}
 @media(max-width:740px){.hero .wrap{grid-template-columns:1fr}.hero picture{justify-self:start;width:140px;grid-row:1}.layout{grid-template-columns:1fr;gap:16px}.shifts li{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:no-preference){
+  .hero img{animation:camp-logo-in .65s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes camp-logo-in{
+    from{opacity:0;transform:translateY(10px) scale(.95)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+  }
   article section.is-current{animation:section-in .22s ease-out both}
   @keyframes section-in{
     from{opacity:0;transform:translateY(5px)}
