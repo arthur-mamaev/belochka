@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820">
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .wave-stroke { animation: draw-wave 1.8s ease-out both; }
+      @keyframes draw-wave {
+        from { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+        to { stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+      }
+    }
+  </style>
   <defs>
     <linearGradient id="wave" gradientUnits="userSpaceOnUse" x1="0" y1="640" x2="1600" y2="80">
       <stop stop-color="#fceafb"/>
       <stop offset="1" stop-color="#e4e4e7"/>
     </linearGradient>
   </defs>
-  <path d="M-160 785 C80 755 218 174 505 185 C748 188 855 708 1095 702 C1303 697 1485 307 1690 -92"
+  <path class="wave-stroke" pathLength="1" d="M-160 785 C80 755 218 174 505 185 C748 188 855 708 1095 702 C1303 697 1485 307 1690 -92"
         fill="none" stroke="url(#wave)" stroke-width="130"/>
 </svg>
