@@ -10,8 +10,8 @@
   </style>
   <defs>
     <linearGradient id="wave" gradientUnits="userSpaceOnUse" x1="0" y1="640" x2="1600" y2="80">
-      <stop stop-color="#fceafb"/>
-      <stop offset="1" stop-color="#e4e4e7"/>
+      <stop stop-color="#ff9500" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#ff9500" stop-opacity=".08"/>
     </linearGradient>
   </defs>
   <path class="wave-stroke" pathLength="1" d="M-160 785 C80 755 218 174 505 185 C748 188 855 708 1095 702 C1303 697 1485 307 1690 -92"
