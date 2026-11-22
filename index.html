@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ДОЛ «Белочка» — Молодёжный центр</title>
+<style>
+@font-face{font-family:"Caviar Dreams";src:url("assets/caviar-dreams.ttf") format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Caviar Dreams";src:url("assets/caviar-dreams-bold.ttf") format("truetype");font-weight:700;font-display:swap}
+:root{--site-accent:#d600cf;--orange:#ff9500;--ink:#000;--muted:#54504a;--line:#dedad4;--paper:#fefefe;--soft:#fff3df}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+a{color:var(--ink);text-underline-offset:.22em}
+a:focus-visible,summary:focus-visible{outline:3px solid #164d9e;outline-offset:4px}
+.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{background:white;border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding:17px 0}
+.brand{display:inline-flex;align-items:center;border-left:4px solid #00c5d6;padding-left:10px;min-height:42px;font-weight:750;text-decoration:none}
+header nav,.header-tools{display:flex;align-items:center;gap:8px clamp(10px,2vw,24px);flex-wrap:wrap}
+header nav a{font:700 17px/1.35 "Caviar Dreams",system-ui,sans-serif;text-decoration:none;padding:5px 0}
+header nav a:hover,header nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--site-accent);text-decoration-thickness:3px;text-underline-offset:6px}
+.header-tools{gap:12px}
+.header-tools a{font-size:14px;font-weight:700}
+.header-tools .max-link{background:var(--orange);text-decoration:none;border-radius:20px;padding:6px 10px}
+@media(max-width:850px){header nav{order:1;width:100%}}
+main{
+  background:
+    linear-gradient(180deg,rgb(0 0 0 / .035),transparent 120px),
+    url("assets/site-wave.svg") center top / max(100%, 920px) auto no-repeat,
+    var(--paper);
+}
+.hero{padding:clamp(28px,6vw,72px) 0}
+.hero p{margin:0;max-width:44ch}
+h1,article h2{font-family:"Caviar Dreams",system-ui,sans-serif;font-weight:700}
+h1{font-size:clamp(36px,7vw,78px);line-height:1.04;margin:8px 0 24px;letter-spacing:-.04em}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);align-items:center;gap:clamp(16px,5vw,64px)}
+.hero picture{display:grid;place-items:center;background:var(--paper);border-radius:18px}
+.hero img{display:block;width:100%;height:auto}
+.action{display:inline-block;background:var(--orange);color:var(--ink);padding:12px 19px;border-radius:9px;font-weight:750;margin-top:22px;transition:transform .18s ease-out,box-shadow .18s ease-out}
+.action:is(:hover,:focus-visible){transform:translateY(-2px);box-shadow:0 5px 16px rgb(255 149 0 / .32)}
+.layout{display:grid;grid-template-columns:285px minmax(0,1fr);gap:30px;padding:32px 0 56px;align-items:start}
+aside,article{background:white;border:1px solid var(--line);border-radius:16px}
+aside{padding:18px}
+aside h2{font-size:17px;margin:0 0 10px}
+aside a{display:block;padding:7px 9px;border-radius:7px;color:var(--ink);text-decoration:none;font-size:14px;overflow-wrap:anywhere}
+aside a:hover,aside a[aria-current=location]{background:var(--soft);color:var(--ink);box-shadow:inset 3px 0 var(--orange)}
+article{padding:clamp(18px,4vw,38px);overflow-wrap:anywhere}
+article h2{font-size:clamp(23px,4vw,35px);line-height:1.15;margin:0 0 12px}
+article p{max-width:66ch}
+article section+section:not([hidden]){border-top:1px solid var(--line);padding-top:28px;margin-top:28px}
+article section[hidden]+section{border-top:0;padding-top:0;margin-top:0}
+.section-menu-link{display:none}
+@media(max-width:740px){.section-menu-link{display:inline-block;margin-bottom:18px}}
+article [id]{scroll-margin-top:16px}
+.status{color:var(--muted)}
+.ticket-options{display:grid;gap:12px;margin:20px 0}
+.ticket-option{border:1px solid var(--line);border-radius:12px;padding:16px}
+.ticket-option h3{margin:0;font-size:18px}
+.ticket-option p{margin:6px 0 12px}
+.ticket-option button{cursor:pointer;font:inherit;font-weight:700;color:var(--muted);background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 13px}
+.ticket-option button:disabled{cursor:default;opacity:.68}
+.ticket-option button.ticket-primary:not(:disabled){color:var(--ink);background:var(--orange);border-color:var(--orange)}
+.ticket-option button:focus-visible{outline:3px solid #164d9e;outline-offset:3px}
+.booking-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:12px;margin:12px 0 16px}
+.booking-fields dt{color:var(--muted);font-size:14px}
+.booking-fields dd{margin:0;font-weight:650}
+.booking-registry li+li{margin-top:8px}
+
+.shifts{list-style:none;padding:0;margin:20px 0}
+.shifts li{display:grid;grid-template-columns:155px 1fr;gap:5px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.shifts time{font-weight:750}
+.album-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px}
+details{border:1px solid var(--line);border-radius:12px;padding:12px}
+summary{cursor:pointer;font-weight:700}
+.cover{display:block;height:86px;border-radius:7px;background:#ffe3b8;margin:9px 0}
+details:nth-child(2) .cover{background:#fff0d4}
+details:nth-child(3) .cover{background:#f4ede2}
+footer{background:var(--paper);padding:clamp(26px,4vw,52px) 0;border-top:1px solid var(--ink);font:700 16px/1.5 "Caviar Dreams",system-ui,sans-serif}
+.footer-main{display:grid;grid-template-columns:1fr 1.25fr 1.65fr;gap:24px;align-items:start}
+.footer-logos,.footer-partners,.footer-socials{display:flex;align-items:center;gap:16px}
+.footer-logos img,.footer-partners img{display:block;max-width:100%;max-height:90px;object-fit:contain}
+footer img[hidden]{display:none}
+.footer-logos a{flex:1;min-width:0}
+.footer-main a{text-decoration:none;overflow-wrap:anywhere}
+.footer-main a:hover{text-decoration:underline}
+.footer-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px}
+.footer-contacts{font-style:normal;display:grid;gap:10px;min-width:0}
+.footer-socials a{display:inline-grid;place-items:center;min-width:38px;min-height:38px;padding:0 5px;background:var(--orange);border-radius:50%;font-family:system-ui,sans-serif;font-size:12px}
+.footer-partners{justify-content:space-between;flex-wrap:wrap;margin-top:32px;min-height:90px}
+.footer-logo-fallback{color:var(--muted)}
+@media(max-width:850px){.footer-main{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-contacts{grid-column:1/-1}}
+@media(max-width:500px){.footer-main{grid-template-columns:1fr}}
+.skip{position:absolute;left:12px;top:12px;background:white;padding:10px;transform:translateY(-160%)}
+.skip:focus{transform:none}
+@media(max-width:740px){.hero .wrap{grid-template-columns:1fr}.hero picture{justify-self:start;width:140px;grid-row:1}.layout{grid-template-columns:1fr;gap:16px}.shifts li{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){
+  article section.is-current{animation:section-in .22s ease-out both}
+  @keyframes section-in{
+    from{opacity:0;transform:translateY(5px)}
+    to{opacity:1;transform:translateY(0)}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .action{transition:none}
+  .action:is(:hover,:focus-visible){transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<header><div class="wrap">
+<a class="brand" href="https://molod43.ru/">Молодёжный центр</a>
+<nav aria-label="Главное меню">
+  <a href="https://molod43.ru/novosti">Новости</a>
+  <a href="https://molod43.ru/meropriyatiya">Афиша</a>
+  <a href="https://molod43.ru/servisy">Сервисы</a>
+  <a href="https://molod43.ru/kontakty">Контакты</a>
+  <a href="https://molod43.ru/o-nas">О нас</a>
+  <a href="#belochka" aria-current="page">Белочка</a>
+</nav>
+<div class="header-tools">
+  <a href="tel:+78332701111">+7 (8332) 70-11-11</a>
+  <a class="max-link" href="https://max.ru/molpol43">MAX</a>
+</div>
+</div></header>
+<main id="main">
+<section class="hero" id="belochka"><div class="wrap">
+<div>
+<p>Детский оздоровительный лагерь</p>
+<h1>«Белочка»</h1>
+<p>Структурное подразделение КОГАУ «Областной молодёжный центр».</p>
+<a class="action" href="#tickets">Купить путёвку</a>
+</div>
+<picture>
+<source media="(max-width: 740px)" srcset="assets/lb-compact.svg">
+<img src="assets/lb.svg" width="700" height="500" alt="">
+</picture>
+</div></section>
+<div class="wrap layout">
+<aside><nav aria-labelledby="sections"><h2 id="sections">О лагере</h2>
+<a href="#schedule">График смен</a>
+<a href="#about">Основные сведения</a>
+<a href="#documents">Документы</a>
+<a href="#leaders">Руководство</a>
+<a href="#team">Педагогический и вожатский состав</a>
+<a href="#contacts">Контакты</a>
+<a href="#activities">Деятельность</a>
+<a href="#facilities">Материально-техническое обеспечение и оснащенность организации отдыха детей и их оздоровления</a>
+<a href="#services">Услуги, в том числе платные, предоставляемые организацией отдыха детей и их оздоровления</a>
+<a href="#accessibility">Доступная среда</a>
+<a href="#tickets">Купить путёвку</a>
+<a href="#reviews">Отзывы</a>
+<a href="#photos">Фотобанк</a>
+</nav></aside>
+<article>
+<a class="section-menu-link" href="#sections">К меню разделов</a>
+<section id="schedule">
+<h2>График смен на 2026 год</h2>
+<p class="status">Смены 2026 года завершились. Даты следующего сезона уточняются.</p>
+<ol class="shifts">
+<li><time datetime="2026-06-01">1–14 июня</time><span>Профильная смена Движения Первых</span></li>
+<li><time datetime="2026-06-18">18 июня – 1 июля</time><span>Код успеха. Выбери свой путь</span></li>
+<li><time datetime="2026-07-06">6–19 июля</time><span>Молодость как стиль жизни</span></li>
+<li><time datetime="2026-07-22">22 июля – 4 августа</time><span>Мир начинается с тебя!</span></li>
+<li><time datetime="2026-08-08">8–21 августа</time><span>Мы будущее России</span></li>
+</ol>
+<p><a href="https://vk.com/belochka43" target="_blank" rel="noopener noreferrer">Официальная группа лагеря ВКонтакте (новая вкладка)</a></p>
+<p><a href="#documents">Приказ об утверждении графика смен</a></p>
+</section>
+<section id="about"><h2>Основные сведения</h2>
+<p><strong>Наименование:</strong> детский оздоровительный лагерь «Белочка», структурное подразделение КОГАУ «Областной молодёжный центр».</p>
+<h3>Руководители</h3><ul>
+<li>Савин Юрий Олегович — директор КОГАУ «Областной молодёжный центр»</li>
+<li>Чупракова Людмила Сергеевна — начальник ДОЛ «Белочка»</li>
+</ul>
+<p><strong>Адрес лагеря:</strong> Кировская область, Слободской район, село Ильинское.</p>
+<p><strong>Режим работы:</strong> круглогодичный. Лагерь принимает детей с июня по август. С сентября по май проводятся мероприятия.</p>
+<p><strong>График работы:</strong> понедельник–пятница с 9:00 до 18:00, суббота и воскресенье — выходные.</p>
+</section>
+<section id="documents"><h2>Документы</h2>
+<p class="status">Документы без ссылки ожидают прикрепления.</p><ul>
+<li>Приказ № 19_1-ОД от 10.02.2026 об утверждении графика смен в ДОЛ «Белочка»</li>
+<li>Устав Кировского областного автономного учреждения «Областной молодёжный центр»</li>
+<li>Распоряжение о приёме-передаче недвижимого имущества</li>
+<li>Приказ о возложении обязанностей директора Кировского областного государственного автономного учреждения «Областной молодёжный центр»</li>
+<li>Правила нахождения на территории детского оздоровительного лагеря «Белочка»</li>
+<li>Санитарно-эпидемиологическое заключение</li>
+<li>Программа воспитательной работы</li>
+<li>Педагогический состав (PDF появится в рабочей версии)</li>
+</ul>
+</section>
+<section id="leaders"><h2>Руководство</h2>
+<ul>
+<li>Савин Юрий Олегович — директор КОГАУ «Областной молодёжный центр»</li>
+<li>Чупракова Людмила Сергеевна — начальник ДОЛ «Белочка»</li>
+<li>Маранцева Владислава Александровна — заместитель начальника лагеря</li>
+<li>Кассихин Ростислав Дмитриевич — заведующий хозяйством</li>
+</ul>
+</section>
+<section id="team"><h2>Педагогический и вожатский состав</h2>
+<p>Педагогический состав (PDF появится в рабочей версии)</p>
+</section>
+<section id="contacts"><h2>Контакты</h2>
+<p><strong>Телефоны:</strong> <a href="tel:+79195040867">+7 919 504 08 67</a>, <a href="tel:+78332701111">+7 (8332) 70-11-11</a> (доб. 325).</p>
+<p><strong>Электронная почта:</strong> <a href="mailto:dol43belochka@mail.ru">dol43belochka@mail.ru</a>.</p>
+<p><strong>Почтовый адрес:</strong> 610002, г. Киров, Динамовский проезд, 2.</p>
+</section>
+<section id="activities"><h2>Деятельность</h2>
+<p><strong>Возраст детей:</strong> от 6,5 до 17 лет.</p>
+<p>На сменах работают кружки по медиа, декоративно-прикладному и изобразительному творчеству, хореографии, вокалу, иностранным языкам и ораторскому мастерству, а также спортивные секции.</p>
+<p><a href="#schedule">График пяти смен на 2026 год</a></p>
+<details><summary>Другой график из подраздела «Деятельность»</summary>
+<p class="status">Год этого графика в источнике не указан. Даты отличаются от графика 2026 года на главной странице.</p><ul>
+<li>11–24 июня — «Единство в традициях»</li>
+<li>2–17 июля — «Молодость, как стиль жизни»</li>
+<li>27 июля – 9 августа — «Культурный код России»</li>
+<li>13–28 августа — «Отечество: от истоков к будущему»</li>
+</ul></details>
+</section>
+<section id="facilities"><h2>Материально-техническое обеспечение и оснащенность организации отдыха детей и их оздоровления</h2>
+<h3>Территория и корпуса</h3>
+<p>Объекты введены в эксплуатацию в 1993 году. Клуб-столовую капитально отремонтировали в 2023 году по программе «Регион для молодых» Росмолодёжи, которая с 2025 года входит в нацпроект «Молодёжь и дети».</p>
+<p>Лагерь расположен в селе Ильинском. Площадь территории — 8,98 га. Вместимость — 320 детей за смену. На территории пять кирпичных двухэтажных жилых корпусов, административный и медицинский корпуса, банный комплекс и здание Молодёжного центра.</p>
+<h3>Проживание и питание</h3>
+<p>Дети живут в комнатах по четыре человека. На этаже восемь детских и две вожатские комнаты, туалеты, комнаты сангигиены, сушилка для одежды и чемоданная.</p>
+<p>Питание пятиразовое. В источнике указаны ГОСТ Р ИСО 22000-2019, ГОСТ Р 55889-2013 и ГОСТ 30390-2013.</p>
+<h3>Спорт и занятия</h3>
+<p>Есть стадион, площадка для мини-футбола, три спортивно-гимнастических комплекса, беговая дорожка, два футбольных поля, волейбольные и баскетбольные площадки с резиновым покрытием и оборудование для настольного тенниса и хоккея.</p>
+<p>В Молодёжном центре есть медиакласс с мультимедийным оборудованием, компьютерами и оргтехникой, киноконцертный зал, творческая мастерская и лекторий.</p>
+</section>
+<section id="services"><h2>Услуги, в том числе платные, предоставляемые организацией отдыха детей и их оздоровления</h2>
+<p class="status">Цены и перечни приведены по предоставленному снимку. Актуальность для следующего сезона уточняется.</p>
+<p><strong>Стоимость путёвки:</strong> 37 800 ₽. <strong>Стоимость дня:</strong> 2 700 ₽.</p>
+<p><strong>Для жителей Кировской области с учётом региональной субсидии:</strong> 29 540 ₽.</p>
+<h3 id="purchase-docs">Документы для покупки путёвки в МФЦ Кирова и Кировской области</h3><ul>
+<li>Паспорт и СНИЛС родителя</li>
+<li>Паспорт, свидетельство о рождении и СНИЛС ребёнка</li>
+<li>Справка о месте жительства ребёнка или справка из школы</li>
+</ul>
+<h3>Документы для зачисления ребёнка</h3><ul>
+<li>Путёвка</li>
+<li>Копия свидетельства о рождении или паспорта (страницы с фото и регистрацией)</li>
+<li>Копия сертификата о прививках</li>
+<li>Копия медицинского страхового полиса</li>
+<li>Справка по форме 079/У</li>
+<li>Результат анализа соскоба</li>
+<li>Справка об эпидокружении</li>
+</ul>
+<h3>Что взять с собой</h3><ul>
+<li>Несколько смен белья</li>
+<li>Открытые тапочки для помещения</li>
+<li>Спортивная одежда и обувь</li>
+<li>Тёплые вещи: худи, кофты, джинсы, летняя ветровка</li>
+<li>Несколько комплектов повседневной одежды</li>
+<li>Парадная одежда</li>
+<li>Гигиенические принадлежности</li>
+<li>Головной убор</li>
+<li>Блокнот, тетрадь и ручка</li>
+</ul>
+</section>
+<section id="accessibility"><h2>Доступная среда</h2><p>Сведения об условиях отдыха детей с ОВЗ и детей-инвалидов ожидаются.</p></section>
+<section id="tickets"><h2>Купить путёвку</h2>
+<p class="status">Демонстрация на вымышленных данных. Оплата имитируется. Записи хранятся до перезагрузки страницы.</p>
+<div class="ticket-options">
+  <form class="ticket-option" id="booking-form">
+    <h3>Оформление путёвки</h3>
+    <dl class="booking-fields">
+      <div><dt>Родитель</dt><dd>Анна Сергеевна Примерова</dd></div>
+      <div><dt>Ребёнок</dt><dd>Михаил Андреевич Примеров</dd></div>
+      <div><dt>Смена</dt><dd>Летняя смена (демо)</dd></div>
+      <div><dt>Стоимость</dt><dd>37 800 ₽ (демо)</dd></div>
+    </dl>
+    <button type="submit" class="ticket-primary">Сформировать договор</button>
+  </form>
+  <div class="ticket-option" id="booking-contract" hidden>
+    <h3>Персональный договор</h3>
+    <p id="booking-contract-number"></p>
+    <button type="button" id="download-contract">Скачать демодоговор</button>
+  </div>
+  <div class="ticket-option" id="booking-payment" hidden>
+    <h3>Онлайн-касса</h3>
+    <p id="booking-payment-status"></p>
+    <button type="button" id="demo-pay" class="ticket-primary">Имитировать оплату</button>
+  </div>
+  <div class="ticket-option" id="booking-voucher" hidden>
+    <h3>Путёвка выдана</h3>
+    <p id="booking-voucher-number"></p>
+    <button type="button" id="download-voucher">Скачать демопутёвку</button>
+    <button type="button" id="new-booking">Оформить ещё одну</button>
+  </div>
+</div>
+<p id="booking-announcement" class="status" role="status"></p>
+<details class="booking-registry">
+  <summary>Демонстрация реестров для сотрудников</summary>
+  <p class="status">Номера связывают записи одного оформления.</p>
+  <h3>Договоры</h3>
+  <p id="contracts-empty">Пока нет записей.</p>
+  <ul id="contracts-list" hidden></ul>
+  <h3>Оплаты</h3>
+  <p id="payments-empty">Пока нет записей.</p>
+  <ul id="payments-list" hidden></ul>
+  <h3>Путёвки</h3>
+  <p id="vouchers-empty">Пока нет записей.</p>
+  <ul id="vouchers-list" hidden></ul>
+</details>
+<p><a href="#purchase-docs">Документы для покупки путёвки через МФЦ</a></p>
+</section>
+<section id="reviews"><h2>Отзывы</h2><p>Отзывы ожидаются.</p></section>
+<section id="photos"><h2>Фотобанк</h2><p class="status">Примеры альбомов. Фотографии лагеря ожидаются.</p><div class="album-grid"><details><summary>Территория лагеря</summary><div class="cover" aria-hidden="true"></div><p class="status">Фотографии ожидаются.</p></details><details><summary>Мероприятия</summary><div class="cover" aria-hidden="true"></div><p class="status">Фотографии ожидаются.</p></details><details><summary>Жизнь в лагере</summary><div class="cover" aria-hidden="true"></div><p class="status">Фотографии ожидаются.</p></details></div></section>
+</article>
+</div></main>
+<footer>
+<div class="wrap">
+  <div class="footer-main">
+    <div class="footer-logos">
+      <a href="https://minmol.kirovreg.ru/"><img src="https://molod43.ru/themes/my-place/assets/images/logo_vyatka_caption.svg" alt="Вятка Молодая" loading="lazy"><span class="footer-logo-fallback" hidden>Вятка Молодая</span></a>
+      <a href="https://molod43.ru/"><img src="https://molod43.ru/themes/my-place/assets/images/logo/cian.png" alt="Областной молодёжный центр" loading="lazy"><span class="footer-logo-fallback" hidden>Областной молодёжный центр</span></a>
+    </div>
+    <nav class="footer-nav" aria-label="Ссылки в подвале">
+      <a href="https://molod43.ru/kontakty">Контакты</a>
+      <a href="https://molod43.ru/o-nas">О нас</a>
+      <a href="https://molod43.ru/o-nas/rezidenty">Носители смыслов</a>
+      <a href="https://molod43.ru/meropriyatiya">Афиша</a>
+      <a href="https://molod43.ru/o-nas/specialistam">Специалистам</a>
+      <a href="https://molod43.ru/o-nas/normativno-pravovaya-baza">Нормативно-правовая база</a>
+    </nav>
+    <address class="footer-contacts">
+      <a href="tel:+78332701111">+7 (8332) 70-11-11</a>
+      <a href="mailto:molcenter43@yandex.ru">molcenter43@yandex.ru</a>
+      <div>Пн–чт 9:00–18:00, пт 9:00–17:00. Сб и вс — выходные.</div>
+      <div class="footer-socials">
+        <a href="https://max.ru/molpol43">MAX</a>
+        <a href="https://vk.com/molpol43">ВК</a>
+      </div>
+      <div>Киров, Динамовский проезд, д. 2</div>
+    </address>
+  </div>
+  <div class="footer-partners">
+    <div><img src="https://molod43.ru/storage/app/resources/resize/0_135_0_0_auto/img_4706ce346ff0d457824d1faf237a9903.png" alt="Кировская область" loading="lazy"><span class="footer-logo-fallback" hidden>Кировская область</span></div>
+    <div><img src="https://molod43.ru/storage/app/resources/resize/0_135_0_0_auto/img_a8650954fa2fa00f8b540f8caa00f6ad.jpg" alt="Национальный проект «Молодёжь и дети»" loading="lazy"><span class="footer-logo-fallback" hidden>Национальный проект «Молодёжь и дети»</span></div>
+    <div><img src="https://molod43.ru/storage/app/resources/resize/0_135_0_0_auto/img_53756c6dfa2bc74cba4e2113652d4088.jpg" alt="Росмолодёжь" loading="lazy"><span class="footer-logo-fallback" hidden>Росмолодёжь</span></div>
+  </div>
+</div>
+</footer>
+<script>
+const menuLinks = document.querySelectorAll('aside nav a');
+const sections = Array.from(document.querySelectorAll('article > section'));
+const schedule = document.getElementById('schedule');
+
+function showSection() {
+  const target = document.getElementById(window.location.hash.slice(1));
+  const targetSection = target?.closest('article > section');
+  const staysInSection = target?.id === 'sections' || target?.id === 'main';
+  const visibleSection = staysInSection ? sections.find(section => !section.hidden) : null;
+  const currentSection = targetSection || visibleSection || schedule;
+
+  for (const section of sections) {
+    section.hidden = section !== currentSection;
+    section.classList.toggle('is-current', !section.hidden);
+  }
+
+  for (const link of menuLinks) {
+    if (link.hash === '#' + currentSection.id) {
+      link.setAttribute('aria-current', 'location');
+    } else {
+      link.removeAttribute('aria-current');
+    }
+  }
+
+  if (targetSection) {
+    const heading = target === targetSection ? currentSection.querySelector('h2') : target;
+    heading.tabIndex = -1;
+    heading.focus({ preventScroll: true });
+    target.scrollIntoView({ block: 'start' });
+  }
+}
+
+window.addEventListener('hashchange', showSection);
+showSection();
+
+for (const logo of document.querySelectorAll('footer img')) {
+  function showLogoLabel() {
+    logo.hidden = true;
+    logo.nextElementSibling.hidden = false;
+  }
+  logo.addEventListener('error', showLogoLabel);
+  if (logo.complete && logo.naturalWidth === 0) showLogoLabel();
+}
+</script>
+<script src="assets/booking-demo.js" defer></script>
+</body>
+</html>
