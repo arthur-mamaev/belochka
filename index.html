@@ -16,7 +16,8 @@ a:focus-visible,summary:focus-visible{outline:3px solid #164d9e;outline-offset:4
 .wrap{width:min(1120px,calc(100% - 36px));margin:auto}
 header{background:white;border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding:17px 0}
-.brand{display:inline-flex;align-items:center;border-left:4px solid #00c5d6;padding-left:10px;min-height:42px;font-weight:750;text-decoration:none}
+.brand{display:inline-flex;align-items:center}
+.brand img{display:block;width:clamp(90px,9vw,124px);height:auto}
 header nav,.header-tools{display:flex;align-items:center;gap:8px clamp(10px,2vw,24px);flex-wrap:wrap}
 header nav a{font:700 17px/1.35 "Caviar Dreams",system-ui,sans-serif;text-decoration:none;padding:5px 0}
 header nav a:hover,header nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--site-accent);text-decoration-thickness:3px;text-underline-offset:6px}
@@ -119,7 +120,9 @@ footer img[hidden]{display:none}
 <body>
 <a class="skip" href="#main">К содержанию</a>
 <header><div class="wrap">
-<a class="brand" href="https://molod43.ru/">Молодёжный центр</a>
+<a class="brand" href="https://molod43.ru/">
+  <img src="assets/youth-center-logo.png" alt="Областной молодёжный центр — главная сайта" width="952" height="592">
+</a>
 <nav aria-label="Главное меню">
   <a href="https://molod43.ru/novosti">Новости</a>
   <a href="https://molod43.ru/meropriyatiya">Афиша</a>
