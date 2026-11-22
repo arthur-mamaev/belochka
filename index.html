@@ -25,11 +25,12 @@ header nav a:hover,header nav a[aria-current]{text-decoration:underline;text-dec
 .header-tools .max-link{background:var(--orange);text-decoration:none;border-radius:20px;padding:6px 10px}
 @media(max-width:850px){header nav{order:1;width:100%}}
 main{
-  background:
-    linear-gradient(180deg,rgb(0 0 0 / .035),transparent 120px),
-    url("assets/site-wave.svg?v=orange-draw") center top / max(100%, 920px) auto no-repeat,
-    var(--paper);
+  position:relative;
+  isolation:isolate;
+  background:linear-gradient(180deg,rgb(0 0 0 / .035),transparent 120px),var(--paper);
 }
+.site-wave{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.site-wave svg{display:block;position:absolute;top:0;left:50%;width:max(100%,920px);height:auto;transform:translateX(-50%)}
 .hero{padding:clamp(28px,6vw,72px) 0}
 .hero p{margin:0;max-width:44ch}
 h1,article h2{font-family:"Caviar Dreams",system-ui,sans-serif;font-weight:700}
@@ -133,6 +134,27 @@ footer img[hidden]{display:none}
 </div>
 </div></header>
 <main id="main">
+<div class="site-wave">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" aria-hidden="true" focusable="false">
+  <style>
+    @media (prefers-reduced-motion: no-preference) {
+      .wave-stroke { animation: draw-wave 1.8s ease-out both; }
+      @keyframes draw-wave {
+        from { stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+        to { stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+      }
+    }
+  </style>
+  <defs>
+    <linearGradient id="wave" gradientUnits="userSpaceOnUse" x1="0" y1="640" x2="1600" y2="80">
+      <stop stop-color="#ff9500" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#ff9500" stop-opacity=".08"/>
+    </linearGradient>
+  </defs>
+  <path class="wave-stroke" pathLength="1" d="M-160 785 C80 755 218 174 505 185 C748 188 855 708 1095 702 C1303 697 1485 307 1690 -92"
+        fill="none" stroke="url(#wave)" stroke-width="130"/>
+</svg>
+</div>
 <section class="hero" id="belochka"><div class="wrap">
 <div>
 <p>Детский оздоровительный лагерь</p>
@@ -373,6 +395,14 @@ function showSection() {
     target.scrollIntoView({ block: 'start' });
   }
 }
+
+window.addEventListener('pageshow', event => {
+  if (!event.persisted) return;
+  for (const animation of document.querySelector('.wave-stroke').getAnimations()) {
+    animation.cancel();
+    animation.play();
+  }
+});
 
 window.addEventListener('hashchange', showSection);
 showSection();
