@@ -54,6 +54,12 @@ article section[hidden]+section{border-top:0;padding-top:0;margin-top:0}
 @media(max-width:740px){.section-menu-link{display:inline-block;margin-bottom:18px}}
 article [id]{scroll-margin-top:16px}
 .status{color:var(--muted)}
+.parent-checklist{list-style:none;padding:0;margin:12px 0 24px}
+.parent-checklist li+li{margin-top:6px}
+.parent-checklist label{display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.parent-checklist input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--orange)}
+.parent-checklist label:has(input:checked){background:var(--soft)}
+.parent-checklist label:has(input:focus-visible){outline:3px solid #164d9e;outline-offset:2px}
 .ticket-options{display:grid;gap:12px;margin:20px 0}
 .ticket-option{border:1px solid var(--line);border-radius:12px;padding:16px}
 .ticket-option h3{margin:0;font-size:18px}
@@ -232,30 +238,30 @@ footer img[hidden]{display:none}
 <p class="status">Цены и перечни приведены по предоставленному снимку. Актуальность для следующего сезона уточняется.</p>
 <p><strong>Стоимость путёвки:</strong> 37 800 ₽. <strong>Стоимость дня:</strong> 2 700 ₽.</p>
 <p><strong>Для жителей Кировской области с учётом региональной субсидии:</strong> 29 540 ₽.</p>
-<h3 id="purchase-docs">Документы для покупки путёвки в МФЦ Кирова и Кировской области</h3><ul>
-<li>Паспорт и СНИЛС родителя</li>
-<li>Паспорт, свидетельство о рождении и СНИЛС ребёнка</li>
-<li>Справка о месте жительства ребёнка или справка из школы</li>
+<h3 id="purchase-docs">Документы для покупки путёвки в МФЦ Кирова и Кировской области</h3><ul class="parent-checklist" role="list">
+  <li><label><input type="checkbox" data-check="purchase-parent-id"><span>Паспорт и СНИЛС родителя</span></label></li>
+  <li><label><input type="checkbox" data-check="purchase-child-id"><span>Паспорт, свидетельство о рождении и СНИЛС ребёнка</span></label></li>
+  <li><label><input type="checkbox" data-check="purchase-residence"><span>Справка о месте жительства ребёнка или справка из школы</span></label></li>
 </ul>
-<h3>Документы для зачисления ребёнка</h3><ul>
-<li>Путёвка</li>
-<li>Копия свидетельства о рождении или паспорта (страницы с фото и регистрацией)</li>
-<li>Копия сертификата о прививках</li>
-<li>Копия медицинского страхового полиса</li>
-<li>Справка по форме 079/У</li>
-<li>Результат анализа соскоба</li>
-<li>Справка об эпидокружении</li>
+<h3>Документы для зачисления ребёнка</h3><ul class="parent-checklist" role="list">
+  <li><label><input type="checkbox" data-check="admission-voucher"><span>Путёвка</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-child-id-copy"><span>Копия свидетельства о рождении или паспорта (страницы с фото и регистрацией)</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-vaccinations"><span>Копия сертификата о прививках</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-insurance"><span>Копия медицинского страхового полиса</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-form-079"><span>Справка по форме 079/У</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-scraping"><span>Результат анализа соскоба</span></label></li>
+  <li><label><input type="checkbox" data-check="admission-epidemiology"><span>Справка об эпидокружении</span></label></li>
 </ul>
-<h3>Что взять с собой</h3><ul>
-<li>Несколько смен белья</li>
-<li>Открытые тапочки для помещения</li>
-<li>Спортивная одежда и обувь</li>
-<li>Тёплые вещи: худи, кофты, джинсы, летняя ветровка</li>
-<li>Несколько комплектов повседневной одежды</li>
-<li>Парадная одежда</li>
-<li>Гигиенические принадлежности</li>
-<li>Головной убор</li>
-<li>Блокнот, тетрадь и ручка</li>
+<h3>Что взять с собой</h3><ul class="parent-checklist" role="list">
+  <li><label><input type="checkbox" data-check="packing-underwear"><span>Несколько смен белья</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-slippers"><span>Открытые тапочки для помещения</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-sportswear"><span>Спортивная одежда и обувь</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-warm-clothes"><span>Тёплые вещи: худи, кофты, джинсы, летняя ветровка</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-casual-clothes"><span>Несколько комплектов повседневной одежды</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-formal-clothes"><span>Парадная одежда</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-hygiene"><span>Гигиенические принадлежности</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-headwear"><span>Головной убор</span></label></li>
+  <li><label><input type="checkbox" data-check="packing-stationery"><span>Блокнот, тетрадь и ручка</span></label></li>
 </ul>
 </section>
 <section id="accessibility"><h2>Доступная среда</h2><p>Сведения об условиях отдыха детей с ОВЗ и детей-инвалидов ожидаются.</p></section>
@@ -388,5 +394,6 @@ for (const logo of document.querySelectorAll('footer img')) {
 }
 </script>
 <script src="assets/booking-demo.js" defer></script>
+<script src="assets/checklists.js" defer></script>
 </body>
 </html>
