@@ -73,9 +73,10 @@ article [id]{scroll-margin-top:16px}
 .booking-fields dd{margin:0;font-weight:650}
 .booking-registry li+li{margin-top:8px}
 
-.shifts{list-style:none;padding:0;margin:20px 0}
-.shifts li{display:grid;grid-template-columns:155px 1fr;gap:5px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
-.shift-dates{font-weight:750}
+.shifts{list-style:none;padding:0;margin:20px 0;container-type:inline-size}
+.shifts li{display:grid;grid-template-columns:12em minmax(0,1fr);gap:5px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.shift-dates{font-weight:750;white-space:nowrap}
+@container (max-width:28rem){.shifts li{grid-template-columns:minmax(0,1fr)}.shift-dates{white-space:normal}.shift-dates time{white-space:nowrap}}
 .shifts p{margin:4px 0}
 .album-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px}
 details{border:1px solid var(--line);border-radius:12px;padding:12px}
