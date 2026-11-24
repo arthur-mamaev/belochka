@@ -80,6 +80,12 @@ article [id]{scroll-margin-top:16px}
 .shift-dates{font-weight:750;white-space:nowrap}
 @container (max-width:28rem){.shifts li{grid-template-columns:minmax(0,1fr)}.shift-dates{white-space:normal}.shift-dates time{white-space:nowrap}}
 .shifts p{margin:4px 0}
+.activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:14px;list-style:none;padding:0}
+.activity-grid figure{margin:0;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.activity-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.activity-grid figcaption{padding:12px;font-weight:700}
+.activity-photos{border:0;border-top:1px solid var(--line);border-radius:0}
+.activity-photos img{margin-top:8px;border-radius:6px}
 .album-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px}
 details{border:1px solid var(--line);border-radius:12px;padding:12px}
 summary{cursor:pointer;font-weight:700}
@@ -238,7 +244,50 @@ footer img[hidden]{display:none}
 </section>
 <section id="activities"><h2>Деятельность</h2>
 <p><strong>Возраст детей:</strong> от 6,5 до 17 лет.</p>
-<p>На сменах работают кружки по медиа, декоративно-прикладному и изобразительному творчеству, хореографии, вокалу, иностранным языкам и ораторскому мастерству, а также спортивные секции.</p>
+<h3>Кружки и секции</h3>
+<ul class="activity-grid" role="list">
+  <li><figure><img src="assets/activities/media-1.jpg" alt="Участница с фотоаппаратом" loading="lazy" decoding="async"><figcaption>Медиа</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/media-2.jpg" alt="Участница снимает на телефон" loading="lazy" decoding="async">
+      <img src="assets/activities/media-3.jpg" alt="Съёмка выступления на телефон" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/crafts-1.jpg" alt="Участник делает аппликацию из цветной бумаги" loading="lazy" decoding="async"><figcaption>Декоративно-прикладное творчество</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/crafts-2.jpg" alt="Участники за столом на занятии по творчеству" loading="lazy" decoding="async">
+      <img src="assets/activities/crafts-3.jpg" alt="Участница работает над рисунком" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/art-1.jpg" alt="Участница рисует акварелью" loading="lazy" decoding="async"><figcaption>Изобразительное искусство</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/art-2.jpg" alt="Участница рисует за мольбертом на улице" loading="lazy" decoding="async">
+      <img src="assets/activities/art-3.jpg" alt="Участницы рисуют за общим столом" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/dance-1.jpg" alt="Участницы исполняют танец на сцене" loading="lazy" decoding="async"><figcaption>Хореография</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/dance-2.jpg" alt="Группа танцоров в финальной позе" loading="lazy" decoding="async">
+      <img src="assets/activities/dance-3.jpg" alt="Танцевальный номер в белых футболках" loading="lazy" decoding="async">
+      <img src="assets/activities/dance-4.jpg" alt="Парный танец с поддержками" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/vocal-1.jpg" alt="Участница выступает с микрофоном" loading="lazy" decoding="async"><figcaption>Вокал</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/vocal-2.jpg" alt="Групповое выступление под гитару" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/languages-1.jpg" alt="Участница говорит в микрофон" loading="lazy" decoding="async"><figcaption>Иностранные языки</figcaption></figure></li>
+  <li><figure><img src="assets/activities/speech-1.jpg" alt="Три участницы выступают с микрофонами" loading="lazy" decoding="async"><figcaption>Ораторское мастерство</figcaption></figure></li>
+  <li><figure><img src="assets/activities/football-1.jpg" alt="Игроки у футбольных ворот" loading="lazy" decoding="async"><figcaption>Футбол</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/football-2.jpg" alt="Игра в футбол на площадке лагеря" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/yoga-1.jpg" alt="Групповая растяжка на ковриках" loading="lazy" decoding="async"><figcaption>Йога и растяжка</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/yoga-2.jpg" alt="Упражнения на открытом воздухе" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/activities/volleyball-1.jpg" alt="Участница с волейбольным мячом" loading="lazy" decoding="async"><figcaption>Волейбол</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/activities/volleyball-2.jpg" alt="Игра у волейбольной сетки" loading="lazy" decoding="async">
+      <img src="assets/activities/volleyball-3.jpg" alt="Участница готовится подать мяч" loading="lazy" decoding="async">
+      <img src="assets/activities/volleyball-4.jpg" alt="Игроки принимают мяч у сетки" loading="lazy" decoding="async">
+    </details></figure></li>
+</ul>
 <p><a href="#schedule">Летние смены 2027 года</a></p>
 </section>
 <section id="facilities"><h2>Материально-техническое обеспечение и оснащенность организации отдыха детей и их оздоровления</h2>
@@ -251,6 +300,25 @@ footer img[hidden]{display:none}
 <h3>Спорт и занятия</h3>
 <p>Есть стадион, площадка для мини-футбола, три спортивно-гимнастических комплекса, беговая дорожка, два футбольных поля, волейбольные и баскетбольные площадки с резиновым покрытием и оборудование для настольного тенниса и хоккея.</p>
 <p>В Молодёжном центре есть медиакласс с мультимедийным оборудованием, компьютерами и оргтехникой, киноконцертный зал, творческая мастерская и лекторий.</p>
+<h3 id="spaces">Пространства</h3>
+<ul class="activity-grid" role="list">
+  <li><figure><img src="assets/spaces/center-1.jpg" alt="Фасад молодёжного центра" loading="lazy" decoding="async"><figcaption>Молодёжный центр «Территория возможностей»</figcaption></figure></li>
+  <li><figure><img src="assets/spaces/media-lab-1.jpg" alt="Компьютеры в медиа-лаборатории" loading="lazy" decoding="async"><figcaption>Медиа-лаборатория</figcaption></figure></li>
+  <li><figure><img src="assets/spaces/lecture-1.jpg" alt="Лекторий с экраном и местами для слушателей" loading="lazy" decoding="async"><figcaption>Лекторий</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/spaces/lecture-2.jpg" alt="Разноцветные сиденья в лектории" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/spaces/workshop-1.jpg" alt="Рабочие столы в мастерской" loading="lazy" decoding="async"><figcaption>Мастерская</figcaption>
+    <details class="activity-photos"><summary>Ещё фото</summary>
+      <img src="assets/spaces/workshop-2.jpg" alt="Стол с настольными играми" loading="lazy" decoding="async">
+      <img src="assets/spaces/workshop-3.jpg" alt="Шахматная доска в мастерской" loading="lazy" decoding="async">
+      <img src="assets/spaces/workshop-4.jpg" alt="Рисунки на мольбертах" loading="lazy" decoding="async">
+    </details></figure></li>
+  <li><figure><img src="assets/spaces/hall-1.jpg" alt="Сцена и зрительские места в актовом зале" loading="lazy" decoding="async"><figcaption>Актовый зал · до 300 человек</figcaption></figure></li>
+  <li><figure><img src="assets/spaces/psychologist-1.jpg" alt="Кабинет с диваном и столами" loading="lazy" decoding="async"><figcaption>Кабинет психолога</figcaption></figure></li>
+  <li><figure><img src="assets/spaces/fitness-1.jpg" alt="Уличные тренажёры под навесом" loading="lazy" decoding="async"><figcaption>Спортивная площадка с тренажёрами</figcaption></figure></li>
+  <li><figure><img src="assets/spaces/outdoors-1.jpg" alt="Участники лагеря на открытой площадке" loading="lazy" decoding="async"><figcaption>Открытое пространство около молодёжного центра</figcaption></figure></li>
+</ul>
 </section>
 <section id="services"><h2>Услуги, в том числе платные, предоставляемые организацией отдыха детей и их оздоровления</h2>
 <p class="status">Актуальные цены по сменам смотрите в <a href="#schedule">расписании на 2027 год</a>. Ниже приведены цены из ранее опубликованных материалов.</p>
