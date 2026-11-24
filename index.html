@@ -81,11 +81,25 @@ article [id]{scroll-margin-top:16px}
 @container (max-width:28rem){.shifts li{grid-template-columns:minmax(0,1fr)}.shift-dates{white-space:normal}.shift-dates time{white-space:nowrap}}
 .shifts p{margin:4px 0}
 .activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:14px;list-style:none;padding:0}
-.activity-grid figure{margin:0;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
-.activity-grid img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-.activity-grid figcaption{padding:12px;font-weight:700}
+:is(.activity-grid,.album-grid) figure{margin:0;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+:is(.activity-grid,.album-grid) img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+:is(.activity-grid,.album-grid) figcaption{padding:12px;font-weight:700}
 .activity-photos{border:0;border-top:1px solid var(--line);border-radius:0}
 .activity-photos img{margin-top:8px;border-radius:6px}
+.photo-frame,.photo-preview-frame{position:relative}
+.photo-open{display:block;width:100%;border:0;padding:0;background:none;cursor:zoom-in}
+.photo-arrow,.photo-close{display:grid;place-items:center;min-width:44px;min-height:44px;padding:0;border:0;border-radius:50%;background:rgb(0 0 0 / .58);color:white;font:26px/1 system-ui;cursor:pointer}
+.photo-arrow[hidden]{display:none}
+.photo-arrow{position:absolute;top:50%;transform:translateY(-50%)}
+.photo-previous{left:6px}
+.photo-next{right:6px}
+.photo-open:focus-visible{outline:3px solid #164d9e;outline-offset:-4px}
+.photo-arrow:focus-visible,.photo-close:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.photo-preview{max-width:min(94vw,1200px);max-height:94dvh;padding:8px;border:0;border-radius:12px;background:#171717;color:white}
+.photo-preview::backdrop{background:rgb(0 0 0 / .82)}
+.photo-preview img{display:block;max-width:100%;max-height:calc(94dvh - 68px);height:auto;width:auto;margin:auto;object-fit:contain}
+.photo-preview p{margin:0;padding:8px 52px 8px 8px}
+.photo-close{position:absolute;top:6px;right:6px;z-index:1}
 .album-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(175px,100%),1fr));gap:14px}
 details{border:1px solid var(--line);border-radius:12px;padding:12px}
 summary{cursor:pointer;font-weight:700}
@@ -489,5 +503,6 @@ for (const logo of document.querySelectorAll('footer img')) {
 </script>
 <script src="assets/booking-demo.js" defer></script>
 <script src="assets/checklists.js" defer></script>
+<script src="assets/photo-gallery.js" defer></script>
 </body>
 </html>
